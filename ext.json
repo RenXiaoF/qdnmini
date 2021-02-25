@@ -1,0 +1,9 @@
+{
+    "extEnable": false,
+    "extAppid": "wx8df0bb0096f80c97",
+    "ext": {
+        "store_name": "娜生活NA LIFE",
+        "store_logo": "../../../images/logo.png",
+        "request_url": "https://www.kangduoebao.com/"
+    }
+}

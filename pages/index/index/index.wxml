@@ -1,0 +1,139 @@
+<!-- index.wxml -->
+<view class="levitate">
+  <!-- 浮动的优惠券->领券中心 -->
+  <!-- <navigator class="levitateview levitater" url="{{immediatelyCoupon.ad_right_window_ad_link}}" hover-class="navigator-hover"> -->
+  <navigator class="levitateview levitater" url="/pages/activity/coupon_list/coupon_list" hover-class="navigator-hover">
+    <image class="levitateview" src="{{url}}{{immediatelyCoupon.ad_right_window_ad_img}}"></image>
+  </navigator>
+</view>
+<!-- ================================================================== -->
+<view class="container">
+
+  <!-- 立刻领券-top -->
+  <view class="coupon-top" wx:if="{{isDisplay}}" bindtap="onShowCoupon">
+    <!-- <view class="coupon-top" > -->
+    <image class="coupon-top-x" src="../../../images/qdn/close.png"></image>
+    <view class="coupon-top-q">{{immediatelyCoupon.ad_top_window_ad_text}}</view>
+    <!-- <navigator class="coupon-top-l" open-type="navigate" url="{{immediatelyCoupon.ad_top_window_ad_link}}"> -->
+    <navigator class="coupon-top-l" open-type="navigate" url="/pages/activity/coupon_list/coupon_list">
+      <view>{{immediatelyCoupon.ad_top_window_ad_btntext}}</view>
+    </navigator>
+    <!-- </view> -->
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-box {{scrollTop>10?'search-fixed':''}}">
+    <!-- 俏丹娜logo -->
+    <view class="search-lift">
+      <navigator url="/pages/index/index/index" open-type="switchTab">
+        <image class="search-lift-image" src="../../../images/qdn/qdnlog.png"></image>
+      </navigator>
+    </view>
+    <!-- 搜索框 -->
+    <view class="search-inner">
+      <!-- <view class="logo">
+        <image class="wh100" src="../../../images/logo.png"></image>
+      </view> -->
+      <view class="search-img">
+        <image class="wh100" src="../../../images/search.png"></image>
+      </view>
+      <input class="search-cont" placeholder="请输入您所搜索的商品" type="text" bindfocus="jumpSearch" />
+    </view>
+    <!-- 图标-私人 -->
+    <view class="search-right">
+      <navigator url="/pages/user/index/index" open-type="switchTab">
+        <image class="search-right-image" src="../../../images/qdn/persion.png"></image>
+        <!--<text class="search-right-image">登录</text> -->
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 魔法首页 -->
+  <view wx:for="{{magicList}}" wx:key="idx" wx:for-item="magic">
+
+    <!-- 轮播图 -->
+    <block wx:if="{{index == 0 && magic.position_id == 2}}">
+      <swiper class="swiper_box" indicator-dots="true" vertical="" circular="ture" autoplay="true" interval="3000" duration="1000">
+        <view wx:for="{{magic.ads}}" wx:key="index" wx:for-item="item">
+          <swiper-item>
+
+              <!-- 类型 0：没有跳转链接 -->
+              <block wx:if="{{item.ad_type == 0}}">
+                <navigator url="/pages/index/index/index" open-type="redirect">
+                  <image src="{{url}}{{item.ad_code}}" class="slide-image" />
+                </navigator>
+              </block>
+
+              <!-- 类型 1：跳转商品类别 -->
+              <block wx:elif="{{item.ad_type == 1}}">
+                <navigator url="/pages/goods/search/search?category_id={{item.ad_value}}" open-type="navigate">
+                  <image src="{{url}}{{item.ad_code}}" class="slide-image" />
+                </navigator>
+              </block>
+
+              <!-- 类型  2：跳商品详情 -->
+                <block wx:elif="{{item.ad_type == 2}}">
+                  <navigator url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.ad_value}}" open-type="navigate">
+                    <image src="{{url}}{{item.ad_code}}" class="slide-image" />
+                  </navigator>
+                </block>
+
+              <!-- 类型  3：跳小程序链接 -->
+              <block wx:elif="{{item.ad_type == 3}}">
+                <navigator url="{{item.ad_value}}" open-type="navigate">
+                  <image src="{{url}}{{item.ad_code}}" class="slide-image" />
+                </navigator>
+              </block>
+
+          </swiper-item>
+        </view>
+      </swiper>
+    </block>
+
+    <!--style_type=66,一行布局-->
+    <block wx:else>
+      <view wx:if="{{magic.style_type == 66}}" class="magic-list-font" style="display:flex">
+        <block wx:for="{{magic.img_list}}" wx:key="index" wx:for-item="item">
+
+          <!-- 类型 0：没有跳转链接 -->
+          <block wx:if="{{item.ad_type == 0}}">
+            <navigator style="flex:{{item.ge_img}};" url="/pages/index/index/index" open-type="redirect">
+              <image class="magic-list-img" mode="widthFix" src="{{url}}{{item.img}}" ></image>
+            </navigator>
+          </block>
+
+          <!-- 类型 1：跳转商品类别 -->
+          <block wx:elif="{{item.ad_type == 1}}">
+            <navigator style="flex:{{item.ge_img}};" url="/pages/goods/search/search?category_id={{item.ad_value}}" open-type="navigate">
+              <image class="magic-list-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+            </navigator>
+          </block>
+
+          <!-- 类型  2：跳商品详情 -->
+            <block wx:elif="{{item.ad_type == 2}}">
+              <navigator style="flex:{{item.ge_img}}" url="/pages/goods/goodsInfo/goodsInfo?goods_id={{item.ad_value}}" open-type="navigate">
+                <image class="magic-list-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+              </navigator>
+            </block>
+
+          <!-- 类型  3：跳小程序链接 -->
+          <block wx:elif="{{item.ad_type == 3}}">
+            <navigator style="flex:{{item.ge_img}}" url="{{item.ad_value}}" open-type="navigate">
+              <image class="magic-list-img" mode="widthFix" src="{{url}}{{item.img}}"></image>
+            </navigator>
+          </block>
+
+        </block>
+      </view>
+    </block>
+
+    <!--style_type=99,主块多行布局-->
+    <block></block>
+
+  </view>
+
+</view>
+<!-- 返回顶部的按钮 -->
+<view class="toTop" bindtap="doScrollTop" wx:if="{{supportPageScroll}}">
+  <image class="wh100" src="../../../images/topup.png"></image>
+</view>

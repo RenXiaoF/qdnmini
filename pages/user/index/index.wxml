@@ -1,0 +1,247 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="userinfo">
+        <view class="user-box">
+            <navigator url='/pages/user/userinfo/userinfo'>
+                <image class="userinfo-avatar" src="{{userInfo.head_pic?userInfo.head_pic:defaultAvatar}}"></image>
+            </navigator>
+            <view class="usercard">
+              <text>{{userInfo.nickname}}</text>
+              <text>ID:{{userInfo.user_id}}</text>
+              <view class="usergrade .co-red">{{userInfo.user_level_name}}</view>
+            </view>
+            <view class="infonavi">
+              <!-- <navigator class="infonaviitem" url='/pages/user/userinfo/userinfo'>
+                  <image class="set-btn" src="../../../images/set.png"></image>
+              </navigator> -->
+              <navigator class="infonaviitem" url='/pages/user/message_notice/message_notice'>
+                <image class="set-btn" src="../../../images/qdn/xiaoxi.png"></image>
+                <view >消息中心</view>
+              </navigator>
+            </view>
+        </view>
+        <view class="user-mes">
+            <navigator class="mes-item" url="/pages/user/collect_list/collect_list">
+                <view class="mes-num">{{userInfo.collect_count}}</view>
+                <view class="mes-title">收藏</view>
+            </navigator>
+            <!-- <navigator class="mes-item" url="/pages/user/message_notice/message_notice">
+                <view class="mes-num">{{userInfo.message_count}}</view>
+                <view class="mes-title">消息通知</view>
+            </navigator> -->
+            <navigator class="mes-item" url="">
+                <view class="mes-num">{{userInfo.message_count}}</view>
+                <view class="mes-title">关注</view>
+            </navigator>
+        </view>
+    </view>
+    <!--用户信息_s-->
+    <!--我的订单_s-->
+    <navigator class="my-order"  url='/pages/user/order_list/order_list'>
+        <view class="order-title">
+            <image class="order-ico" src="../../../images/mlist.png"></image>
+            <text></text>
+        </view>
+        <view class="all-order">
+            <view>全部订单</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+    </navigator>
+    <view class="order-list">
+        <navigator class="order-item" url='/pages/user/order_list/order_list?type=1'>
+            <view class="order-pic0 order-pic">
+                <image class="wh100" src="../../../images/q1.png"></image>
+            </view>
+            <text class="order-des">待付款</text>
+            <text class="order-num" >{{userInfo.waitPay}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.waitPay==0}}'>{{userInfo.waitPay}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/order_list/order_list?type=2'>
+            <view class="order-pic1 order-pic">
+                <image class="wh100" src="../../../images/ka.png"></image>
+            </view>
+            <text class="order-des">待发货</text>
+            <text class="order-num" >{{userInfo.waitSend}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.waitSend==0}}'>{{userInfo.waitSend}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/order_list/order_list?type=3'>
+            <view class="order-pic1 order-pic">
+                <image class="wh100" src="../../../images/q2.png"></image>
+            </view>
+            <text class="order-des">待收货</text>
+            <text class="order-num" >{{userInfo.waitReceive}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.waitReceive==0}}'>{{userInfo.waitReceive}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/comment/comment?status=0'>
+            <view class="order-pic2 order-pic">
+                <image class="wh100" src="../../../images/q3.png"></image>
+            </view>
+            <text class="order-des">待评价</text>
+            <text class="order-num" >{{userInfo.uncomment_count}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.uncomment_count==0}}'>{{userInfo.uncomment_count}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/return_goods_list/return_goods_list'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q4.png"></image>
+            </view>
+            <text class="order-des">退款/退货</text>
+            <text class="order-num" >{{userInfo.return_count}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.return_count==0}}'>{{userInfo.return_count}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/pos_order/pos_order'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q4.png"></image>
+            </view>
+            <text class="order-des">零售单</text>
+            <text class="order-num" >{{userInfo.pos_num}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.pos_num==0}}'>{{userInfo.pos_num}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/total_order/total_order'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q4.png"></image>
+            </view>
+            <text class="order-des">所有订单</text>
+            <!-- <text class="order-num" hidden='{{userInfo.return_count==0}}'>{{userInfo.return_count}}</text> -->
+        </navigator>
+    </view>
+   <!--_e-->
+
+   <!--我的钱包_s-->
+    <navigator class="my-order" url='/pages/user/my_account/my_account'>
+        <view class="order-title">
+            <image class="order-ico" src="../../../images/mwallet.png"></image>
+            <text>我的钱包</text>
+        </view>
+        <view class="all-order">
+            <view>资金管理</view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </view>
+    </navigator>
+    <view class="order-list wallet-list">
+        <navigator class="wallet-item" url='/pages/user/my_account/my_account'>
+            <view class="wallet-num">{{userInfo.user_money}}</view>
+            <view class="wallet-des">A积分</view>
+        </navigator>
+        <navigator class="wallet-item" url='/pages/user/my_account/my_account'>
+            <view class="wallet-num">{{userInfo.un_user_money}}</view>
+            <view class="wallet-des">未结转A积分</view>
+        </navigator>
+        <navigator class="wallet-item" url='/pages/user/coupon/coupon'>
+            <view class="wallet-num">{{userInfo.coupon_count}}</view>
+            <view class="wallet-des">优惠券</view>
+        </navigator>
+        <navigator class="wallet-item" url='/pages/user/my_account/my_account'>
+            <view class="wallet-num">{{userInfo.b_coin}}</view>
+            <view class="wallet-des">B积分(管理积分)</view>
+        </navigator>
+    </view>
+  <!--我的钱包_e-->
+  <!--管理积分_s-->
+    <navigator class="my-order"  url=''>
+        <view class="order-title">
+            <image class="order-ico" src="../../../images/zz10.png"></image>
+            <text>管理积分</text>
+        </view>
+    </navigator>
+    <view class="order-list-short">
+        <navigator class="order-item" url='/pages/user/coin_list/coin_list'>
+            <view class="order-pic2 order-pic">
+                <image class="wh100" src="../../../images/q6.png"></image>
+            </view>
+            <text class="order-des">积分申请</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </navigator>
+        <navigator class="order-item" url='/pages/user/exchange_coin/exchange_coin'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q8.png"></image>
+            </view>
+            <text class="order-des">积分兑换</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </navigator>
+        <navigator class="order-item" url='/pages/user/ranking_list/ranking_list'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q5.png"></image>
+            </view>
+            <text class="order-des">排行榜</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </navigator>
+        <view class="order-item" bindtap="qiandao" >
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/w25.png"></image>
+            </view>
+            <text class="order-des" >签到送积分</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </view>
+    </view>
+  <!--管理积分_e-->
+      <!--订货管理_s-->
+    <!-- <navigator class="my-order"  url=''>
+        <view class="order-title">
+            <image class="order-ico" src="../../../images/buy_c.png"></image>
+            <text>订货管理</text>
+        </view>
+    </navigator>
+    <view class="order-list-short">
+        <navigator class="order-item" url='/pages/user/ordergoods/ordergoods'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q6.png"></image>
+            </view>
+            <text class="order-des">现场订货</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </navigator>
+        <navigator class="order-item" url='/pages/user/ordergoods/ordergoods'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q7.png"></image>
+            </view>
+            <text class="order-des">我的订货</text>
+            <text class="order-num" hidden='{{true}}'>{{}}</text>
+        </navigator>
+    </view> -->
+  <!--订货管理_e-->
+    <!--我的粉丝_s-->
+    <navigator class="my-order"  url='/pages/user/myfans/myfans'>
+        <view class="order-title">
+            <image class="order-ico" src="../../../images/my_c.png"></image>
+            <text>我的粉丝</text>
+        </view>
+    </navigator>
+    <view class="order-list-short">
+        <navigator class="order-item" url='/pages/user/myfans/myfans'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/q5.png"></image>
+            </view>
+            <text class="order-des">全部粉丝</text>
+            <text class="order-num" hidden='{{userInfo.return_count==0}}'>{{userInfo.return_count}}</text>
+        </navigator>
+        <navigator class="order-item" url='/pages/user/myfans/myfans?typeId=1'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/06.png"></image>
+            </view>
+            <text class="order-des">一级粉丝</text>
+            <text class="order-num" >{{userInfo.one}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.one==0}}'>{{userInfo.one}}</text> -->
+        </navigator>
+        <navigator class="order-item" url='/pages/user/myfans/myfans?typeId=2'>
+            <view class="order-pic3 order-pic">
+                <image class="wh100" src="../../../images/07.png"></image>
+            </view>
+            <text class="order-des">二级粉丝</text>
+            <text class="order-num" >{{userInfo.two}}</text>
+            <!-- <text class="order-num" hidden='{{userInfo.two==0}}'>{{userInfo.two}}</text> -->
+        </navigator>
+    </view>
+  <!--userinfo-list-->
+    <view class="manage-list">
+        <navigator bindtap="call"  wx:for="{{userInfoList.manageList}}" wx:key="{{index}}" class="manage-item" url="{{item.url}}" id="{{item.id}}" >
+            <view class="order-title">
+                <image class="order-ico text-ico" src="{{item.pic}}"></image>
+                <view class="listtext">
+                  <text>{{item.des}}</text>
+
+                  <text wx:if="{{item.id}}" >{{userInfo.phone}}</text>
+                </view>
+            </view>
+            <image class="arrow-right" src="../../../images/icon-arrowdown.png"></image>
+        </navigator>
+    </view>
+</view>

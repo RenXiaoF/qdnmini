@@ -1,0 +1,198 @@
+/**index.wxss**/
+.userinfo {
+    width: 750rpx;
+    height: 310rpx;
+    background-size: cover;
+    color: #fff;
+    background-color: #EB4142;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin:0 40rpx;
+  border-radius: 50%;
+}
+.user-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 222rpx;
+    font-size: 36rpx;
+}
+.set-btn{
+    /* position: absolute; */
+    /* right: 40rpx; */
+    /* top: 40rpx; */
+    width: 60rpx;
+    height: 60rpx;
+}
+.user-mes{
+    display: flex;
+    height: 88rpx;
+}
+.mes-item{
+    width: 50%;
+    text-align: center;
+}
+.mes-num{
+    font-size: 36rpx;
+    line-height: 50rpx;
+}
+.mes-title{
+    font-size: 26rpx;
+}
+.my-order{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+    border-bottom:1px solid #f5f5f5;
+}
+.order-ico{
+    width: 36rpx;
+    height: 40rpx;
+    margin-left: 40rpx;
+    margin-right: 20rpx;
+
+}
+.arrow-right{
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+    flex: 1;
+}
+.all-order{
+    display: flex;
+    font-size: 28rpx;
+    color: #777;
+}
+.order-title{
+    display: flex;
+    font-size: 32rpx;
+    color: #444;
+    flex: 20;
+    align-items:center;
+}
+.order-list{
+    display: flex;
+    flex-wrap:wrap;
+    height: 275rpx;
+    padding: 50rpx 0;
+    background-color: #fff;
+}
+.order-list-short{
+    display: flex;
+    flex-wrap:wrap;
+    height: 100rpx;
+    padding: 50rpx 0;
+    background-color: #fff;
+}
+.order-item{
+    position: relative;
+    width: 25%;
+    padding-bottom:50rpx;
+    text-align: center;
+    font-size: 24rpx;
+}
+.order-pic{
+    margin: 0 auto;
+}
+.order-pic0{
+    width: 78rpx;
+    height: 66rpx;
+}
+.order-pic1{
+    width: 70rpx;
+    height: 64rpx;
+}
+.order-pic2{
+    width: 64rpx;
+    height: 64rpx;
+}
+.order-pic3{
+    width: 65rpx;
+    height: 64rpx;
+}
+.order-des{
+    height: 34rpx;
+    line-height: 40rpx;
+    color: #444;
+    margin-top: 10rpx;
+}
+.order-num{
+    position: absolute;
+    right: 25rpx;
+    top:-20rpx;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 50%;
+    background-color: rgba(217,81,99,0.9);
+    color: #fff;
+}
+.wallet-item{
+    width: 33.33%;
+    text-align: center;
+    padding-bottom:70rpx;
+}
+.wallet-num{
+    color: #f23030;
+    font-size: 36rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    overflow: hidden;
+}
+.wallet-des{
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 24rpx;
+    color: #444;
+}
+.manage-list{
+    background-color: #fff;
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
+}
+.manage-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90rpx;
+    border-bottom:1px solid #f5f5f5;
+}
+.usercard{
+  display:flex;
+  flex-direction:column;
+}
+.infonavi{
+  display:flex;
+  align-self:flex-start;
+  margin:20rpx 0 0 222rpx;
+}
+.infonaviitem{
+  margin-right:30rpx;
+}
+.infonaviitem .set-btn{
+    margin-left: 20rpx;
+}
+.infonaviitem view{
+    font-size: 25rpx;
+}
+
+.usergrade{
+  background:#fff;
+  border-radius:15rpx;
+  width:100rpx;
+  text-align:center;
+}
+.listtext{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex:15;
+}
+.text-ico{
+  flex:1;
+}
